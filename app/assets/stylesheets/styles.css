@@ -1,0 +1,18 @@
+.name {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.name a, a:hover {
+	color: maroon;
+}
+
+.price {
+	font-weight: 800;
+	font-size: 12pt;
+
+}
+
+.name, .quantity, .price, .description {
+	margin-bottom: 16px;
+}
