@@ -16,3 +16,7 @@
 .name, .quantity, .price, .description {
 	margin-bottom: 16px;
 }
+
+#notice {
+	color: green;
+}

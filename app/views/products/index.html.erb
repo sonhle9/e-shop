@@ -4,7 +4,7 @@
 	<tr>
 		<td><%= image_tag product.image_url %></td>
 		<td>
-		<div class="name"><%= product.name %></div>
+		<div class="name"><%= link_to product.name, product %></div>
 		<div class="description"><%= product.description %></div>
 		<div class=price>Price: <%= product.price %></div>
 		<div class="quantity">In stock: <%= product.quantity  %></div>

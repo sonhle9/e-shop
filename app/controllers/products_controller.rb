@@ -9,10 +9,29 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
 
+  def show
+  end
+
   def create
     @product = Product.new(product_params)
-    @product.save
-    redirect to '/'
+    if @product.save
+      redirect_to @product, notice: 'Product was successfully created.'
+    else
+      render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    @product.destroy
+    redirect_to root_url, notice: 'Product was successfully destroyed.'
+  end
+
+  def destroy
+    @product.destroy
+    redirect_to @product, notice: 'Product was successfully updated.'
   end
 
   private
@@ -24,5 +43,5 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:name, :description, :price, :quantity, :image_url)
     end
-    
+
 end
