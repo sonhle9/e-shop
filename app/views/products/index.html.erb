@@ -1,16 +1,18 @@
 <h1>Products</h1>
+
 <table>
 	<% @products.each do |product| %>
 	<tr>
-		<td><%= image_tag product.image_url %></td>
+		<td><%= link_to image_tag(product.image_url), product %></td>
 		<td>
 		<div class="name"><%= link_to product.name, product %></div>
 		<div class="description"><%= product.description %></div>
-		<div class=price>Price: <%= product.price %></div>
+		<div class=price>Price: <%= number_to_currency product.price, unit: 'PLN', format: '%n %u' %></div>
 		<div class="quantity">In stock: <%= product.quantity  %></div>
 		<div class="links"><%= link_to 'Show', product %>
 		| <%= link_to 'Edit', edit_product_path(product) %>
-		| <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+		| <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+		</div>
 		</td>
 	</tr>
 	<% end %>

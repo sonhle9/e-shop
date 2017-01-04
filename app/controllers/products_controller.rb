@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :checkout]
 
   def index
     @products = Product.all
@@ -25,13 +25,19 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product.destroy
-    redirect_to root_url, notice: 'Product was successfully destroyed.'
+    if @product.update(product_params)
+      redirect_to @product, notice: 'Post was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy
     @product.destroy
     redirect_to @product, notice: 'Product was successfully updated.'
+  end
+
+  def checkout
   end
 
   private

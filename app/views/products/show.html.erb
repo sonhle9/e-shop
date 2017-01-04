@@ -16,7 +16,7 @@
 </p>
 
 <p>
-  <strong>Quantity:</strong>
+  <strong>In stock:</strong>
   <%= @product.quantity %>
 </p>
 
@@ -26,4 +26,9 @@
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', root_path %> |
-<%= link_to 'Delete', product_path(@product), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Delete', product_path(@product), method: :delete, data: { confirm: 'Are you sure?' } %> |
+<% if @product.quantity.zero? %>
+		Out of stock
+		<% else %>
+		<%= link_to 'Add to Cart', checkout_product_path(@product) %>
+		<% end %>
