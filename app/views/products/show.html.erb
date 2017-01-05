@@ -30,5 +30,5 @@
 <% if @product.quantity.zero? %>
 		Out of stock
 		<% else %>
-		<%= link_to 'Add to Cart', checkout_product_path(@product) %>
+		<%= link_to 'Add to Cart', cart_add_path(@product) %>
 		<% end %>

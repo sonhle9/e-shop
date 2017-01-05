@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   root 'products#index'
-  resources :products do
-    member do
-      get :checkout
-    end
-  end
+  resources :products
+  get 'cart/index'
+  get 'cart/add'
 end

@@ -20,3 +20,7 @@
 #notice {
 	color: green;
 }
+
+table thead tr th {
+	padding-right: 60px
+}

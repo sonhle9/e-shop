@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy, :checkout]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :cart]
 
   def index
     @products = Product.all
@@ -35,9 +35,6 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     redirect_to @product, notice: 'Product was successfully updated.'
-  end
-
-  def checkout
   end
 
   private
