@@ -34,3 +34,7 @@ table thead tr th {
 	border-radius: 25px;
 	text-align: center;
 }
+
+form {
+	display: inline;
+}

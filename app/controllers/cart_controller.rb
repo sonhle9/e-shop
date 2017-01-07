@@ -1,7 +1,7 @@
 class CartController < ApplicationController
-  before_action :cart_exists?
-
+  before_action :set_cart, only: [:index]
+  
   def index
-    @cart = Cart.find(session[:cart_id]).products
   end
+
 end
