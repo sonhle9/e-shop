@@ -1,4 +1,5 @@
 class Product <ApplicationRecord
-  validates :name, :description, :price, presence: true
-  validates :quantity, numericality: { only_integer: true, greater_than: 0 }
+  has_many :cart_items
+  belongs_to :cart
+  validates :name, :description, :price, :stock, presence: true
 end

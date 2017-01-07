@@ -8,7 +8,7 @@
 		<div class="name"><%= link_to product.name, product %></div>
 		<div class="description"><%= product.description %></div>
 		<div class=price>Price: <%= number_to_currency product.price, unit: 'PLN', format: '%n %u' %></div>
-		<div class="quantity">In stock: <%= product.quantity  %></div>
+		<div class="quantity">In stock: <%= product.stock  %></div>
 		<div class="links"><%= link_to 'Show', product %>
 		| <%= link_to 'Edit', edit_product_path(product) %>
 		| <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>

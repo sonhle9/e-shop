@@ -1,19 +1,26 @@
 <h1>Your Cart</h1>
 
-<table>
+<table class="cart">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Product</th>
+      <th>Description</th>
+      <th>Price</th>
+    </tr>
+  </thead>
 
-<tbody>
-	<% @cart.each do |id, quantity| %>
-		<% product = Product.find_by(id) %>
-		<tr>
-			<td width="100"><%= image_tag product.image_url, :width => 100 %></td>
-			<td width="100"><%= product.name %></td>
-			<td width="100"><%= quantity %></td>
-			<td width="100"><%= number_to_currency product.price, unit: 'PLN', format: '%n %u' %></td>
-			<td width="100"><%= number_to_currency product.price * quantity, unit: 'PLN', format: '%n %u' %></td>
-		</tr>
-	<% end %>
-</tbody>
+  <tbody>
+    <% @cart.each do |product| %>
+      <tr>
+        <td><%= link_to image_tag(product.image_url), product, { style: "width: 60" } %></td>
+        <td><%= link_to product.name, product %></td>
+        <td><%= product.description %></td>
+        <td><%= product.price %></td>
+        <td><%= link_to 'Remove' %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <%= link_to 'Back', root_path %>

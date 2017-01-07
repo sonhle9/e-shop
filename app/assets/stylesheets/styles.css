@@ -24,3 +24,13 @@
 table thead tr th {
 	padding-right: 60px
 }
+
+.cart > tbody tr td a img {
+	width: 60px;
+}
+
+.number_tag {
+	width: 55px;
+	border-radius: 25px;
+	text-align: center;
+}

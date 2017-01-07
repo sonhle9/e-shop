@@ -1,11 +1,7 @@
 class CartController < ApplicationController
+  before_action :cart_exists?
+
   def index
-    @cart = session[:cart] || {}
-  end
-  def add
-    id = params[:id]
-    cart = session[:cart] ||= {}
-    cart[id] = (cart[id] || 0) + 1
-    redirect_to action: 'index'
+    @cart = Cart.find(session[:cart_id]).products
   end
 end
