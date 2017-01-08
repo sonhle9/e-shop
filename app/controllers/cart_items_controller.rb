@@ -3,7 +3,7 @@ class CartItemsController < ApplicationController
   before_action :set_cart_item, only: [:update, :destroy]
   
   def create
-    @cart.add_product(params)
+    @cart.add_product(params, @cart.id)
     
     if @cart.save
       redirect_to cart_path
@@ -26,6 +26,9 @@ class CartItemsController < ApplicationController
   end
 
   private
+    def current_cart 
+      @current_cart = Cart.find(session[:cart_id])
+    end
     
     def set_cart_item
       @cart_item = CartItem.find(params[:id])
