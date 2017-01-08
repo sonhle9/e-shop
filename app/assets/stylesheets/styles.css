@@ -22,7 +22,8 @@
 }
 
 table thead tr th {
-	padding-right: 60px
+	padding-right: 60px;
+	text-align: center;
 }
 
 .cart > tbody tr td a img {
@@ -37,4 +38,25 @@ table thead tr th {
 
 form {
 	display: inline;
+}
+
+tbody > tr > td {
+	padding-right: 25px;
+}
+
+.quantity-decrement, .quantity-increment {
+	font-size: 25px;
+}
+
+.quantity-decrement, .quantity-increment:hover {
+	cursor: pointer;
+}
+
+.image {
+	height: 40px;
+	width: 40px;
+}
+
+.total-price {
+	width: 930px;
 }
