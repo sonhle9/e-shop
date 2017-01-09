@@ -24,6 +24,7 @@
   <%= image_tag @product.image_url %>
 </p>
 
+<%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', root_path %> |
 <% if @product.stock.zero? %>
 		Out of stock
