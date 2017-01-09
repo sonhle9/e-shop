@@ -1,17 +1,4 @@
 <h3 class="text-left">Products for Sale</h3>
-<ul>
-	<header><b>Bugs & features</b></header>
-	<li>Dodać akcję 'update' w kontrolerze cart_items oraz formularz do zmiany ilości wybranych produktów</li>
-	<li>Dodać AJAX do formularzy</li>
-	<li>Po potwierdzeniu zamówienia odjąć ilość od stanu magazynowego</li>
-	<li>Dodać zapisywanie ilości wizyt danego klienta</li>
-	<li>Dodać wysyłanie potwierdzenia:
-	<ul>
-		<li>Mail</li>
-		<li>Pdf</li>
-	</ul></li>
-</ul>
-
 <table>
 	<% @products.each do |product| %>
 	<tr>
@@ -19,7 +6,7 @@
 		<td>
 		<div class="name"><%= link_to product.name, product %></div>
 		<div class="description"><%= product.description %></div>
-		<div class=price>Price: <%= number_to_currency product.price, unit: 'PLN', format: '%n %u' %></div>
+		<div class= "price">Price: <%= number_to_currency product.price, unit: 'PLN', format: '%n %u' %></div>
 		<div class="quantity">In stock: <%= product.stock  %></div>
 		</div>
 		</td>

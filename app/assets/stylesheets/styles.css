@@ -8,9 +8,7 @@
 }
 
 .price {
-	font-weight: 800;
-	font-size: 12pt;
-
+	font-size: 11pt;
 }
 
 .name, .quantity, .price, .description {
@@ -30,7 +28,7 @@ table thead tr th {
 	width: 60px;
 }
 
-.number_tag {
+.number-tag {
 	width: 55px;
 	border-radius: 25px;
 	text-align: center;
@@ -58,5 +56,6 @@ tbody > tr > td {
 }
 
 .total-price {
-	width: 930px;
+	width: 830px;
+	text-align: right;
 }
