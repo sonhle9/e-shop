@@ -10,6 +10,7 @@ class CartItemsController < ApplicationController
     else
       redirect_to @product
     end
+    puts YAML::dump(params)
   end
 
   def update
