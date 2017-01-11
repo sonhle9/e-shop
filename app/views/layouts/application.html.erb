@@ -1,34 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>EShop</title>
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-	<% if request.ssl? %>
-    	<%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
-    	<%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
-  	<% else %>
-    	<%= stylesheet_link_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
-    	<%= javascript_include_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
-  	<% end %>
+	  <%= render 'layouts/shim' %>
   </head>
-
   <body>
+    <%= render 'layouts/header' %>
     <div class="container">
-    <div class="row">
-      <div class="col-xs-6">
-        <h1><%= link_to "My Store", root_path %></h1>
+      <div class="row">
+        <div class="col-xs-6 text-right">
+          <%= debug(params) if Rails.env.development? %>
+          <%# console if Rails.env.development? %>
+        </div>
       </div>
-      <div class="col-xs-6 text-right">
-        <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
-        <%= debug(params) if Rails.env.development? %>
-        <% console if Rails.env.development? %>
-      </div>
+      <hr>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
     </div>
-    <hr>
-    <%= yield %>
-  </div>
   </body>
 </html>

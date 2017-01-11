@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170110211102) do
+ActiveRecord::Schema.define(version: 20170111200336) do
 
   create_table "cart_items", force: :cascade do |t|
-    t.integer "cart_id"
-    t.integer "product_id"
-    t.integer "quantity",   default: 0
+    t.integer  "cart_id"
+    t.integer  "product_id"
+    t.integer  "quantity",   default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "carts", force: :cascade do |t|
@@ -24,8 +26,10 @@ ActiveRecord::Schema.define(version: 20170110211102) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "cart_id"
-    t.integer "cart_item_id"
+    t.integer  "cart_id"
+    t.integer  "cart_item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.index ["cart_id"], name: "index_orders_on_cart_id"
     t.index ["cart_item_id"], name: "index_orders_on_cart_item_id"
   end
@@ -38,6 +42,16 @@ ActiveRecord::Schema.define(version: 20170110211102) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.string   "image_url"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.boolean  "admin"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end
