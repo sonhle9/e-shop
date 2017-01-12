@@ -11,15 +11,14 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="container">
-      <div class="row">
-        <div class="col-xs-6 text-right">
-          <%= debug(params) if Rails.env.development? %>
-          <%# console if Rails.env.development? %>
-        </div>
-      </div>
-      <hr>
+      <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+      <% end %>
       <%= yield %>
       <%= render 'layouts/footer' %>
+      <%= debug(params) if Rails.env.development? %>
+      <%# console if Rails.env.development? %>
     </div>
+    <hr>
   </body>
 </html>
