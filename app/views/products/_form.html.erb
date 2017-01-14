@@ -7,7 +7,7 @@
      				The form contains <%= pluralize(@product.errors.count, "error") %>.
     			</div>
     			<ul>
-    				<% @user.errors.full_messages.each do |msg| %>
+    				<% @product.errors.full_messages.each do |msg| %>
       			<li><%= msg %></li>
     		<% end %>
     			</ul>
