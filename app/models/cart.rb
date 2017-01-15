@@ -1,6 +1,5 @@
 class Cart < ApplicationRecord
-  has_many :cart_items, dependent: :destroy
-  has_many :orders, dependent: :destroy
+  has_many :cart_items
   
   def add_product(product_params)
 
@@ -10,7 +9,9 @@ class Cart < ApplicationRecord
       current_item.quantity += product_params[:product][:quantity].to_i
       current_item.save
     else
-      new_item = CartItem.create(product_id: product_params[:product][:product_id], quantity: product_params[:product][:quantity], cart_id: self.id)
+      new_item = CartItem.create(product_id: product_params[:product][:product_id], 
+                                  quantity: product_params[:product][:quantity],
+                                  cart_id: self.id)
     end
       new_item
   end

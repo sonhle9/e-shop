@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :orders
-
+  has_many :order_items
+  
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
 
