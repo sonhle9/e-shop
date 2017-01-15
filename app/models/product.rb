@@ -1,6 +1,5 @@
 class Product <ApplicationRecord
   has_many :cart_items
-  has_many :orders
 
   validates :name, :description, :image_url, presence: true
   validates_numericality_of :stock, :price, greater_than_or_equal_to: 0
