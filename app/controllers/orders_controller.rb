@@ -1,16 +1,41 @@
 class OrdersController < ApplicationController
+before_action :logged_in_user
+
+  def new
+    @cart = current_cart
+    if @cart.cart_items.empty?
+      flash[:danger] = "Your cart is empty"
+      redirect_to root_path
+      return
+    end
+ 
+    @order = Order.new
+ 
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @order }
+    end
+  end
+
   def create
     @order = Order.new(order_params)
-  end
-
-  def update
-  end
-
   
+    if @order.save
+      Cart.destroy(session[:cart_id])
+      session[:cart_id] = nil
+      flash[:success] = "Thank you for your order!"
+      redirect_to root_path
+    else
+      @cart = current_cart
+      render :action => "new"
+    end
+
+  end
 
   private
 
     def order_params
-      params.require(:order).permit(:cart_id, :cart_item_id, :user_id)
+      params.require(:order).permit(:delivery_address, :delivery_type, :payment_type, :user_id)
     end
+
 end

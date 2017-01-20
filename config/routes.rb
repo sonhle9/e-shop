@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   resources :products
   resources :cart_items, only: [:create, :update, :destroy]
-  resources :orders, only: [:create, :update, :destroy]
+  resources :orders
   resources :users
   get    'cart',     to: 'cart#index'
   get    '/signup',  to: 'users#new'

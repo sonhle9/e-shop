@@ -9,7 +9,7 @@ class Cart < ApplicationRecord
       current_item.quantity += product_params[:product][:quantity].to_i
       current_item.save
     else
-      new_item = CartItem.create(product_id: product_params[:product][:product_id], 
+      new_item = cart_items.create(product_id: product_params[:product][:product_id], 
                                   quantity: product_params[:product][:quantity],
                                   cart_id: self.id)
     end
@@ -22,5 +22,9 @@ class Cart < ApplicationRecord
       size += cart_item.quantity
     end
     size
+  end
+
+  def total_price
+    cart_items.to_a.sum { |item| item.total_price }
   end
 end
