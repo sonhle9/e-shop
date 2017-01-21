@@ -216,10 +216,6 @@ input {
 	margin-bottom: 16px;
 }
 
-#notice {
-	color: green;
-}
-
 table thead tr th {
 	padding-right: 60px;
 	text-align: center;
@@ -251,12 +247,19 @@ tbody > tr > td {
 	cursor: pointer;
 }
 
-.image {
-	height: 40px;
-	width: 40px;
-}
-
 .total-price {
 	width: 830px;
 	text-align: right;
+}
+
+.admin-panel-title {
+  text-align: center;
+}
+
+.list-item {
+  display: inline-block;
+}
+
+.link {
+  float: right;
 }

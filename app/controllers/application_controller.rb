@@ -6,12 +6,10 @@ class ApplicationController < ActionController::Base
   
   private
     def set_cart
-      if session[:cart_id].present?
-        @cart = Cart.find(session[:cart_id])
-      else
-        @cart = Cart.create
-        session[:cart_id] = @cart.id
-      end
+      @cart = Cart.find(session[:cart_id])
+      rescue ActiveRecord::RecordNotFound
+      @cart = Cart.create
+      session[:cart_id] = @cart.id
     end
     
     def current_cart

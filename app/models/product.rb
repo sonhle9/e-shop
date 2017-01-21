@@ -1,27 +1,9 @@
 class Product <ApplicationRecord
   has_many :cart_items
 
-  validates :name, :description, :image_url, presence: true
+  validates :name, :description, presence: true
   validates_numericality_of :stock, :price, greater_than_or_equal_to: 0
+  has_attached_file :image, styles: { medium: "200x200>", thumb: "100x100#" }
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
-  before_destroy :ensure_not_referenced_by_any_cart_item
-  before_destroy :ensure_not_referenced_by_any_order
-
-  def ensure_not_referenced_by_any_cart_item
-    if cart_items.empty?
-      return true
-    else
-      errors.add(:base, 'Cart Items present')
-     return false
-     end
-  end
-
-  def ensure_not_referenced_by_any_order
-    if orders.empty?
-      return true
-    else
-      errors.add(:base, 'Orders present')
-     return false
-     end
-  end
 end

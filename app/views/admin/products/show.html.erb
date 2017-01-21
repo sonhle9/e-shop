@@ -24,7 +24,7 @@
       <%= image_tag @product.image.url(:medium) %>
     </p>
 
-    <%= link_to 'Back', root_path %> |
+    <%= link_to 'Back', admin_root_path %> |
     <% if @product.stock.zero? %>
     		Out of stock
     <% else %>

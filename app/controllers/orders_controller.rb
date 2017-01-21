@@ -21,7 +21,6 @@ before_action :logged_in_user
     @order = Order.new(order_params)
   
     if @order.save
-      Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
       flash[:success] = "Thank you for your order!"
       redirect_to root_path
@@ -35,7 +34,7 @@ before_action :logged_in_user
   private
 
     def order_params
-      params.require(:order).permit(:delivery_address, :delivery_type, :payment_type, :user_id)
+      params.require(:order).permit(:delivery_address, :delivery_type, :payment_type, :user_id, :cart_id)
     end
 
 end

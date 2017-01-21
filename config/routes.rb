@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   root 'products#index'
-  
-  resources :products
+  namespace :admin do
+    resources :products
+    resources :orders
+    get 'orders', to: 'orders#index'
+    root 'products#index'
+  end
+  resources :products, only: [:index, :show]
   resources :cart_items, only: [:create, :update, :destroy]
   resources :orders
   resources :users
