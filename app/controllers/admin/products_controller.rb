@@ -14,7 +14,7 @@ class Admin::ProductsController < ApplicationController
     @product = Product.new(product_params)
     if @product.save 
       flash[:success] = 'Product was successfully created'
-      redirect_to admin_product_path
+      redirect_to [:admin, @product]
     else
       render :new
     end
@@ -48,6 +48,6 @@ class Admin::ProductsController < ApplicationController
   end
 
   def product_params
-      params.require(:product).permit(:name, :description, :price, :stock, :image)
+      params.require(:product).permit(:name, :description, :price, :stock, image: [:image_file_name, :image_file_size, :image_content_type, :image_updated_at])
   end
 end
