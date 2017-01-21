@@ -1,6 +1,6 @@
 class Admin::OrdersController < ApplicationController
   def index
-    @orders = Order.all
+    @orders = Order.where("created_at >= ?", 30.days.ago)
   end
 
   def show
