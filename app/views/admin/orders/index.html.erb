@@ -7,10 +7,10 @@
 	<% @orders.each do |order| %>
 	<td><b>Order nr. <%= counter %></b></td>
 	<% counter += 1 %>
-	<td><b>Order placed: <%= order.created_at %></b></td>
+	<td><b>Order placed: <%= order.created_at.to_date %></b></td>
 		<% order.cart.cart_items.each do |cart_item| %>
 	<tr>
-		<td><%= link_to image_tag(cart_item.product.image.url(:thumb)), cart_item.product %></td>
+		<td><%= link_to image_tag(cart_item.product.image_url), cart_item.product %></td>
 		<td>
 		<div class="name"><%= link_to cart_item.product.name, cart_item.product %></div>
 		<div class="description"><%= cart_item.product.description %></div>

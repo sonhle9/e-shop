@@ -15,7 +15,7 @@
 		<table>
 			<% @products.each do |product| %>
 			<tr>
-				<td><%= link_to image_tag(product.image.url(:medium)), [:admin, product] %></td>
+				<td><%= link_to image_tag(product.image_url), [:admin, product] %></td>
 				<td>
 				<div class="name"><%= link_to product.name, [:admin, product] %></div>
 				<div class="description"><%= product.description %></div>

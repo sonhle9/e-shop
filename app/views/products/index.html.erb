@@ -4,7 +4,7 @@
 <table>
 	<% @products.each do |product| %>
 	<tr>
-		<td><%= link_to image_tag(product.image.url(:medium)), product %></td>
+		<td><%= link_to image_tag(product.image_url), product %></td>
 		<td>
 		<div class="name"><%= link_to product.name, product %></div>
 		<div class="description"><%= product.description %></div>
