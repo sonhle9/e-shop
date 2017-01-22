@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @orders = @user.orders
   end
 
   def new
